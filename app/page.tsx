@@ -1,101 +1,163 @@
+import Link from "next/link";
 import Image from "next/image";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      {/* Header */}
+      <header className="bg-gray-900 text-white fixed w-full z-10 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <h1 className="text-2xl font-bold">
+              <Link href="/">Portfolio</Link>
+            </h1>
+            <nav className="space-x-6">
+              <Link href="#accueil" className="hover:text-gray-400">
+                Accueil
+              </Link>
+              <Link href="#competences" className="hover:text-gray-400">
+                Compétences
+              </Link>
+              <Link href="#projets" className="hover:text-gray-400">
+                Projets
+              </Link>
+              <Link href="#contact" className="hover:text-gray-400">
+                Contact
+              </Link>
+            </nav>
+          </div>
         </div>
+      </header>
+
+      {/* Main content */}
+      <main className="pt-24 px-8 pb-8">
+        {/* Accueil */}
+        <section id="accueil" className="text-center my-12">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            À propos de moi
+          </h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+            Je m'appel Mathieu, j'ai 19 ans et suis né à Châlons-en-Champagne,
+            dans la Marne (51). Actuellement étudiant en BUT informatique à
+            l'IUT de Lens, je suis alternant chez ITEKA, une entreprise
+            spécialisée dans le réseau et l'infrastructure informatique. Après
+            mon BUT, je souhaite me spécialiser en cybersécurité pour contribuer
+            à la protection des données personnelles.
+          </p>
+        </section>
+
+        {/* Compétences */}
+        <section id="competences" className="text-center my-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">Compétences</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              "SQLite",
+              "PostgreSQL",
+              "PHP",
+              "Python",
+              "Java",
+              "Next.js",
+              "Symfony",
+            ].map((skill, index) => (
+              <span
+                key={index}
+                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-full shadow-md"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Projets */}
+        <section id="projets" className="my-12">
+          <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+            Projets
+          </h2>
+          {[
+            {
+              name: "Flatcraft",
+              description:
+                "Flatcraft est un jeu qui à pour but de recréer le jeu Minecraft mais en version 2D. Ce jeu est fait en groupe de 4 lors du cadre de notre formation en BUT informatique. Ce jeu permet de se balader librement (openWorld) dans différents univers et avec des monstres différents selon ces biomes, mais aussi différentes ressources récoltables et qu'il est possible de transformer.",
+              imageSrc: "/image/overworld.webp", // Image de Flatcraft
+            },
+            {
+              name: "Bookshelf",
+              description:
+                "Bookshelf est un projet qui a eu lieu lors du marathon du web de l'année 2023. Le but de ce marathon était de faire un site web en 48 heures. Nous étions dans des équipes de 9, composées de 4 personnes du département informatique mais aussi de 5 personnes du département multimédia. Ce fut une expérience très enrichissante car j'ai pu rencontrer de nouvelles personnes. Toutefois, nous avons également eu la possibilité de partager nos connaissances et de communiquer au sein d'une équipe.",
+              imageSrc: "/image/pagehistoire.webp", // Image de Bookshelf
+            },
+            {
+              name: "Pokedex",
+              description:
+                "Ce projet permet de connaitre les informations d'un Pokémon via un appel d'une API. On peut donc voir les points de vie, les attaques et on peut aussi rechercher un Pokémon. Ce projet m'a permis de comprendre comment fonctionne une API et comment faire une requête en Python.",
+              imageSrc: "/image/acceuilPokedex-min.webp", // Image de Pokedex
+            },
+            {
+              name: "JO Paris 2024",
+              description:
+                "Ce projet est en cours de développement, avec pour objectif de nous familiariser avec l'utilisation de Laravel, un framework PHP. Grâce à cela, nous pouvons observer les différentes facettes de ce Framework et comprendre les possibilités qu'il offre. Nous avons donc pu apprendre un nouveau langage avec ses défauts et ses avantages. Cependant, le site n'étant pas fini, il n'y a pas encore toutes les fonctionnalités et le style.",
+            },
+            {
+              name: "Ray Tracing",
+              description:
+                "Ce projet a été réalisé lors du 1er semestre du BUT2. Le but de ce projet était de réaliser une application qui permettait de faire du Ray tracing. Ce projet a été réalisé en équipe de 4, ce qui m'a permis de m'améliorer en Java et de comprendre l'organisation au sein d'une équipe de développement.",
+            },
+          ].map((project, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 shadow-lg rounded-lg mb-6 max-w-3xl mx-auto"
+            >
+              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                {project.name}
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {project.description}
+              </p>
+              {project.imageSrc && (
+                <div className="w-full h-80 relative">
+                  {" "}
+                  {/* Ajustez la taille de l'image ici */}
+                  <Image
+                    src={project.imageSrc}
+                    alt={project.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg shadow-md"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </section>
+
+        {/* Contact */}
+        <section
+          id="contact"
+          className="bg-gray-900 text-white py-12 text-center"
+        >
+          <h2 className="text-3xl font-bold mb-6">Contact</h2>
+          <p className="text-lg">
+            Contactez-moi à{" "}
+            <a href="mailto:mathieu.hns@gmail.com" className="underline">
+              mathieu.hns@gmail.com
+            </a>
+          </p>
+          <div className="flex justify-center space-x-4 mt-4">
+            <a href="https://twitter.com" className="hover:text-gray-400">
+              Twitter
+            </a>
+            <a href="https://linkedin.com" className="hover:text-gray-400">
+              LinkedIn
+            </a>
+            <a href="https://github.com" className="hover:text-gray-400">
+              GitHub
+            </a>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
-}
+};
+
+export default Home;
