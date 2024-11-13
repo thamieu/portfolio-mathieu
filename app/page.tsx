@@ -32,13 +32,40 @@ const Home: React.FC = () => {
 
       {/* Main content */}
       <main className="pt-24 px-8 pb-8">
+        {/* Section Introduction */}
+        <section className="min-h-screen flex flex-col justify-center items-center bg-gray-900 text-white text-center">
+          {/* Profile Picture */}
+          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-blue-500 mb-8">
+            <Image
+              src="/image/moi-min.webp" // Mettez le chemin de votre image ici
+              alt="Photo de Mathieu"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            Bonjour, je m'appelle
+          </h1>
+          <h2 className="text-5xl md:text-7xl font-bold text-blue-500 mb-2">
+            Mathieu H.
+          </h2>
+          <p className="text-2xl md:text-3xl font-light mb-4">
+            Je suis développeur web.
+          </p>
+          <p className="text-lg md:text-xl text-gray-300 mb-8">
+            Actuellement en 3ème année de BUT informatique à l'IUT de Lens, en
+            alternance chez <span className="text-blue-500">ITEKA</span>.
+          </p>
+        </section>
+
         {/* Accueil */}
         <section id="accueil" className="text-center my-12">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">
             À propos de moi
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            Je m'appel Mathieu, j'ai 19 ans et suis né à Châlons-en-Champagne,
+            Je m'appelle Mathieu, j'ai 19 ans et suis né à Châlons-en-Champagne,
             dans la Marne (51). Actuellement étudiant en BUT informatique à
             l'IUT de Lens, je suis alternant chez ITEKA, une entreprise
             spécialisée dans le réseau et l'infrastructure informatique. Après
@@ -79,30 +106,30 @@ const Home: React.FC = () => {
             {
               name: "Flatcraft",
               description:
-                "Flatcraft est un jeu qui à pour but de recréer le jeu Minecraft mais en version 2D. Ce jeu est fait en groupe de 4 lors du cadre de notre formation en BUT informatique. Ce jeu permet de se balader librement (openWorld) dans différents univers et avec des monstres différents selon ces biomes, mais aussi différentes ressources récoltables et qu'il est possible de transformer.",
+                "Flatcraft est un jeu qui a pour but de recréer le jeu Minecraft en version 2D. Ce jeu est fait en groupe de 4 dans le cadre de notre formation en BUT informatique. Il permet de se balader librement dans différents univers, avec des monstres spécifiques à chaque biome, et propose diverses ressources récoltables.",
               imageSrc: "/image/overworld.webp", // Image de Flatcraft
             },
             {
               name: "Bookshelf",
               description:
-                "Bookshelf est un projet qui a eu lieu lors du marathon du web de l'année 2023. Le but de ce marathon était de faire un site web en 48 heures. Nous étions dans des équipes de 9, composées de 4 personnes du département informatique mais aussi de 5 personnes du département multimédia. Ce fut une expérience très enrichissante car j'ai pu rencontrer de nouvelles personnes. Toutefois, nous avons également eu la possibilité de partager nos connaissances et de communiquer au sein d'une équipe.",
+                "Bookshelf est un projet réalisé lors du marathon du web 2023, où nous avions 48 heures pour créer un site. En équipe de 9, composée d'étudiants en informatique et en multimédia, nous avons appris à collaborer et partager nos compétences.",
               imageSrc: "/image/pagehistoire.webp", // Image de Bookshelf
             },
             {
               name: "Pokedex",
               description:
-                "Ce projet permet de connaitre les informations d'un Pokémon via un appel d'une API. On peut donc voir les points de vie, les attaques et on peut aussi rechercher un Pokémon. Ce projet m'a permis de comprendre comment fonctionne une API et comment faire une requête en Python.",
+                "Ce projet permet de connaitre les informations d'un Pokémon via un appel à une API. On peut voir les points de vie, les attaques, et effectuer des recherches. Ce projet m'a permis de comprendre le fonctionnement des API en Python.",
               imageSrc: "/image/acceuilPokedex-min.webp", // Image de Pokedex
             },
             {
               name: "JO Paris 2024",
               description:
-                "Ce projet est en cours de développement, avec pour objectif de nous familiariser avec l'utilisation de Laravel, un framework PHP. Grâce à cela, nous pouvons observer les différentes facettes de ce Framework et comprendre les possibilités qu'il offre. Nous avons donc pu apprendre un nouveau langage avec ses défauts et ses avantages. Cependant, le site n'étant pas fini, il n'y a pas encore toutes les fonctionnalités et le style.",
+                "Projet en cours utilisant Laravel, un framework PHP, pour comprendre ses fonctionnalités. Ce site, encore en développement, permet d'explorer les possibilités de Laravel, bien qu'il manque encore des fonctionnalités et du style.",
             },
             {
               name: "Ray Tracing",
               description:
-                "Ce projet a été réalisé lors du 1er semestre du BUT2. Le but de ce projet était de réaliser une application qui permettait de faire du Ray tracing. Ce projet a été réalisé en équipe de 4, ce qui m'a permis de m'améliorer en Java et de comprendre l'organisation au sein d'une équipe de développement.",
+                "Ce projet réalisé en équipe de 4 durant le 1er semestre du BUT2 visait à créer une application de Ray Tracing. Ce travail m'a permis de progresser en Java et de renforcer mes compétences de travail en équipe.",
             },
           ].map((project, index) => (
             <div
@@ -117,8 +144,6 @@ const Home: React.FC = () => {
               </p>
               {project.imageSrc && (
                 <div className="w-full h-80 relative">
-                  {" "}
-                  {/* Ajustez la taille de l'image ici */}
                   <Image
                     src={project.imageSrc}
                     alt={project.name}
